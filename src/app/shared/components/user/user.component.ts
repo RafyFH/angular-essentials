@@ -1,11 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {NgOptimizedImage} from "@angular/common";
+import { type User } from "../../../core/models/user.model";
 
-interface User {
-  name: string;
-  id: string;
-  avatar: string;
-}
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -15,6 +10,7 @@ interface User {
 })
 export class UserComponent {
   @Input({required: true}) user!: User;
+  @Input({required: true})  selected!: boolean;
   @Output() select = new EventEmitter();
 
   get imagePath() {
